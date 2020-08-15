@@ -1,14 +1,8 @@
 from inspect import signature
-from math import log2
-
-def a(x, y, z):
-    return x and y and z;
-
-print(len(signature(a).parameters))
 
 def bool_sat(f):
     args = len(signature(f).parameters)
-    max = pow(2, args)
+    max = 2 ** args
     num = 0
     all_solutions = []
     while num < max:
@@ -25,5 +19,3 @@ def bool_sat(f):
             all_solutions.append(digits)
         num = num + 1
     return all_solutions
-
-print(bool_sat(a))
